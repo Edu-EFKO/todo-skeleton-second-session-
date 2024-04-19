@@ -1,78 +1,71 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const draggables = document.querySelectorAll('.task-item');
-    const columns = document.querySelectorAll('.kanban__column');
-   
+document.addEventListener("DOMContentLoaded", () => {
+  renderKanban();
 
-    const addButton = document.querySelectorAll('.kanban__icon--add');
-  
-    draggables.forEach(draggable => {
-      draggable.addEventListener('dragstart', () => {
-        draggable.classList.add('dragging');
-      });
-  
-      draggable.addEventListener('dragend', () => {
-        draggable.classList.remove('dragging');
-      });
-    });
-  
-    columns.forEach(column => {
-      column.addEventListener('dragover', e => {
-        e.preventDefault();
-        const draggable = document.querySelector('.dragging');
-        column.querySelector('.kanban__list').appendChild(draggable);
-      });
-    });
+  const addTaskButtons = document.querySelectorAll(".kanban__icon--add");
+  const modal = document.querySelector(".modal");
+  const closeModalButton = document.querySelector(".close-modal");
+  const cancelButton = document.querySelector(".cancel-button");
+  const form = document.querySelector(".modal form");
 
-    addButton.forEach(button => {
-        button.addEventListener('click', (event) => {
-            const column = event.target.closest('.kanban__column');
-            const taskList = column.querySelector('.kanban__list');
-            createNewTask(taskList);
-        });
-    });
+  // =========================================================================
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    
+    const title = document.getElementById("title-task").value;
+    const description = document.getElementById("description-task").value;
+    const dueDate = form.elements["date"].value;
+
+    // Вставить код для создания задачи
+  });
+  // =========================================================================
+
+  addTaskButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+  });
+
+  closeModalButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  cancelButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 });
 
-function createNewTask(taskList) {
-    const taskTitle = prompt('Введите название задачи:');
-    const taskDescription = prompt('Введите описание задачи:');
-    const taskDate = prompt('Введите дату завершения задачи (формат ГГГГ-ММ-ДД):');
-  
-    if (taskTitle && taskDescription && taskDate) {
-      const taskItem = document.createElement('div');
-      taskItem.classList.add('task-item');
-      taskItem.setAttribute('draggable', 'true');
-  
-      const complexityClass = getComplexityClass(taskDate);
-  
-      taskItem.innerHTML = `
-        <h3 class="task-item__title">${taskTitle}</h3>
-        <p class="task-item__description">${taskDescription}</p>
-        <div class="task-item__info">
-          <div class="task-item__complexity complexity">
-            <span class="complexity__dot ${complexityClass}"></span>
-            <span class="complexity__dot ${complexityClass}"></span>
-            <span class="complexity__dot ${complexityClass}"></span>
+
+// =========================================================================
+function renderTaskElement() {
+  // Вставить код рендера задачи
+}
+// =========================================================================
+
+function renderKanban() {
+  const kanbanContainer = document.querySelector(".kanban");
+
+  columns.forEach((column) => {
+    const columnSection = document.createElement("section");
+    columnSection.className = `kanban__column kanban__column--${column.id}`;
+    columnSection.innerHTML = `
+          <div class="kanban__header">
+            <div class="kanban__header-content">
+              <img src="${column.icon}" alt="Колонка ${column.title}" class="kanban__icon kanban__icon--column">
+              <h2 class="kanban__title">${column.title}</h2>
+            </div>
+            <img src="./src/assets/img/kanban/plus.svg" alt="Добавить задачу" class="kanban__icon kanban__icon--add">
           </div>
-          <div class="task-item__client">${taskDate}</div>
-        </div>
-      `;
-      taskList.appendChild(taskItem);
-    }
-  }
-  
-  function getComplexityClass(taskDate) {
-    const currentDate = new Date();
-    const dueDate = new Date(taskDate);
-    const timeDiff = dueDate.getTime() - currentDate.getTime();
-    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-  
-    if (daysDiff <= 7) {
-      return 'complexity__dot--high';
-    } else if (daysDiff <= 14) {
-      return 'complexity__dot--medium';
-    } else {
-      return 'complexity__dot--low';
-    }
-  }
+          <div class="kanban__list"></div>
+        `;
+
+    const listContainer = columnSection.querySelector(".kanban__list");
+    column.tasks.forEach((taskId) => {
+      const task = tasks.find((task) => task.id === taskId);
+      if (task) {
+        // listContainer.appendChild(renderTaskElement(task));
+      }
+    });
+
+    kanbanContainer.appendChild(columnSection);
+  });
+}

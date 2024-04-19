@@ -23,172 +23,23 @@
   </header>
 
   <main class="container">
-    <div class="kanban">
-      <section class="kanban__column kanban__column--to-do">
-        <div class="kanban__header">
-          <div class="kanban__header-content">
-            <img src="./src/assets/img/kanban/kanban__column--to-do.svg" alt="Колонка задач"
-              class="kanban__icon kanban__icon--column">
-            <h2 class="kanban__title">Задачи</h2>
-          </div>
-          <img src="./src/assets/img/kanban/plus.svg" alt="Добавить задачу" class="kanban__icon kanban__icon--add">
-        </div>
-        <div class="kanban__list">
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 1</h3>
-            <p class="task-item__description">Описание задачи 1</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--high"></span>
-                <span class="complexity__dot complexity__dot--high"></span>
-                <span class="complexity__dot complexity__dot--high"></span>
-              </div>
-              <div class="task-item__client">16.11.2023</div>
-            </div>
-          </div>
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 2</h3>
-            <p class="task-item__description">Описание задачи 2</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--medium"></span>
-                <span class="complexity__dot complexity__dot--medium"></span>
-                <span class="complexity__dot"></span>
-              </div>
-              <div class="task-item__client">1.12.2023</div>
-            </div>
-          </div>
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 3</h3>
-            <p class="task-item__description">Описание задачи 3</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--low"></span>
-                <span class="complexity__dot"></span>
-                <span class="complexity__dot"></span>
-              </div>
-              <div class="task-item__client">1.02.2024</div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div class="kanban" id="app">
 
-      <section class="kanban__column kanban__column--in-progress">
-        <div class="kanban__header">
-          <div class="kanban__header-content">
-            <img src="./src/assets/img/kanban/kanban__column--in-progress.svg" alt="Колонка 'В процессе'"
-              class="kanban__icon kanban__icon--column">
-            <h2 class="kanban__title">В процессе</h2>
-          </div>
-          <img src="./src/assets/img/kanban/plus.svg" alt="Добавить задачу" class="kanban__icon kanban__icon--add">
-        </div>
-        <div class="kanban__list">
-
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 4</h3>
-            <p class="task-item__description">Описание задачи 4</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--high"></span>
-                <span class="complexity__dot complexity__dot--high"></span>
-                <span class="complexity__dot complexity__dot--high"></span>
-              </div>
-              <div class="task-item__client">16.11.2023</div>
-            </div>
-          </div>
-
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 5</h3>
-            <p class="task-item__description">Описание задачи 5</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--high"></span>
-                <span class="complexity__dot complexity__dot--high"></span>
-                <span class="complexity__dot complexity__dot--high"></span>
-              </div>
-              <div class="task-item__client">18.11.2023</div>
-            </div>
-          </div>
-
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 6</h3>
-            <p class="task-item__description">Описание задачи 6</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--medium"></span>
-                <span class="complexity__dot complexity__dot--medium"></span>
-                <span class="complexity__dot"></span>
-              </div>
-              <div class="task-item__client">25.11.2023</div>
-            </div>
-          </div>
-
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 7</h3>
-            <p class="task-item__description">Описание задачи 7</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--medium"></span>
-                <span class="complexity__dot complexity__dot--medium"></span>
-                <span class="complexity__dot"></span>
-              </div>
-              <div class="task-item__client">3.12.2023</div>
-            </div>
-          </div>
-
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 8</h3>
-            <p class="task-item__description">Описание задачи 8</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--low"></span>
-                <span class="complexity__dot"></span>
-                <span class="complexity__dot"></span>
-              </div>
-              <div class="task-item__client">10.12.2023</div>
-            </div>
-          </div>
-
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 9</h3>
-            <p class="task-item__description">Описание задачи 9</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--low"></span>
-                <span class="complexity__dot"></span>
-                <span class="complexity__dot"></span>
-              </div>
-              <div class="task-item__client">20.12.2023</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="kanban__column kanban__column--done">
-        <div class="kanban__header">
-          <div class="kanban__header-content">
-            <img src="./src/assets/img/kanban/kanban__column--done.svg" alt="Колонка 'Выполнено'"
-              class="kanban__icon kanban__icon--column">
-            <h2 class="kanban__title">Выполнено</h2>
-          </div>
-        </div>
-        <div class="kanban__list">
-          <div class="task-item" draggable="true">
-            <h3 class="task-item__title">Задача 10</h3>
-            <p class="task-item__description">Описание задачи 10</p>
-            <div class="task-item__info">
-              <div class="task-item__complexity complexity">
-                <span class="complexity__dot complexity__dot--done"></span>
-                <span class="complexity__dot complexity__dot--done"></span>
-                <span class="complexity__dot complexity__dot--done"></span>
-              </div>
-              <div class="task-item__client">1.10.2034</div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
 
+    <div class="modal"> 
+      <div class="modal__container">
+        <a href="#" class="close-modal">✖</a> 
+        <form>
+          <input type="text" id="title-task" name="title" placeholder="Введите заголовок задачи"/>
+          <textarea id="description-task" name="description" placeholder="Введите описание задачи"></textarea>
+          <input type="date" name="date" placeholder="Выберите дату"/>
+          <button type="submit">Отправить</button>
+          <button type="button" class="cancel-button">Отмена</button> 
+        </form>
+      </div>
+    </div>
+    
   </main>
 
   <footer class="footer">
@@ -196,5 +47,5 @@
   </footer>
 </body>
 <script src="./src/assets/js/index.js"></script>
-
+<script src="./src/assets/js/list.js"></script>
 </html>
